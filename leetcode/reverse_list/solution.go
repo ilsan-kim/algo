@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-	"time"
 )
 
 type ListNode struct {
@@ -32,17 +31,16 @@ func (l *ListNode) Expr() string {
 }
 
 func solution(head *ListNode) *ListNode {
-	startNode := &ListNode{}
-	nextNode := startNode
+	var rootNode *ListNode = nil
 
 	for head != nil {
-		nextNode.Next = head
+		current := head
 		head = head.Next
-		time.Sleep(time.Second)
-		fmt.Println(startNode.Expr())
+		current.Next = rootNode
+		rootNode = current
 	}
 
-	return nil
+	return rootNode
 }
 
 func main() {
@@ -50,5 +48,5 @@ func main() {
 	node_1_2 := ListNode{Val: 2, Next: &node_1_3}
 	node_1_1 := ListNode{Val: 1, Next: &node_1_2}
 	a := solution(&node_1_1)
-	fmt.Println(a.Expr())
+	fmt.Println(a)
 }
