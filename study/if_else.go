@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 )
 
@@ -42,7 +41,6 @@ func (r red) check(car car) {
 		car.stop()
 	} else if r.color() == "green" {
 		car.drive()
-		bufio.Reader{}
 	}
 }
 func newRed(color string) red {
